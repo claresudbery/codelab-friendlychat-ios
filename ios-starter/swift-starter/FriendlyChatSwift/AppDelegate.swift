@@ -20,7 +20,7 @@ import Firebase
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
@@ -29,14 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                    open url: URL,
                    options: [UIApplication.OpenURLOptionsKey : Any])
     -> Bool {
-    return GIDSignIn.sharedInstance().handle(url)
+    return GIDSignIn.sharedInstance.handle(url)
   }
 
   func application(_ application: UIApplication,
                    open url: URL,
                    sourceApplication: String?,
                    annotation: Any) -> Bool {
-    return GIDSignIn.sharedInstance().handle(url)
+    return GIDSignIn.sharedInstance.handle(url)
   }
 
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
     launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    GIDSignIn.sharedInstance().delegate = self
+//    GIDSignIn.sharedInstance().delegate = self
     return true
   }
 }
